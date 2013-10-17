@@ -138,29 +138,20 @@ nmap <Leader>w :w<CR>
 " Global replace of word under cursor
 nmap <Leader>S :%s/\<<C-r><C-w>\>//g<Left><Left>
 
-" Use leader key followed by an arrow key to change windows.
-"nmap <silent> <Leader><Up> :wincmd k<CR>
-"nmap <silent> <Leader><Down> :wincmd j<CR>
-"nmap <silent> <Leader><Left> :wincmd h<CR>
-"nmap <silent> <Leader><Right> :wincmd l<CR>
 " Window Min Height
 set wmh=0
-"nnoremap <Leader><Up> <C-W>k<C-W>_
-"nnoremap <Leader><Down> <C-W>j<C-W>_
-"nnoremap <Leader><Left> <c-w>h<c-w><Bar>
-"nnoremap <Leader><Right> <c-w>l<c-w><Bar>
-"nnoremap <C-Up> <C-W>k<C-W>_
-"nnoremap <C-Down> <C-W>j<C-W>_
-"nnoremap <C-Left> <c-w>h<c-w><Bar>
-"nnoremap <C-Right> <c-w>l<c-w><Bar>
-nnoremap <M-Up> <C-W>k<C-W>_
-nnoremap <M-Down> <C-W>j<C-W>_
-nnoremap <M-Left> <c-w>h<c-w><Bar>
-nnoremap <M-Right> <c-w>l<c-w><Bar>
+"nnoremap <M-Up> <C-W>k<C-W>_
+"nnoremap <M-Down> <C-W>j<C-W>_
+"nnoremap <M-Left> <c-w>h<c-w><Bar>
+"nnoremap <M-Right> <c-w>l<c-w><Bar>
 "nnoremap <M-n> <C-W>k<C-W>_
 "nnoremap <M-t> <C-W>j<C-W>_
 "nnoremap <M-h> <c-w>h<c-w><Bar>
 "nnoremap <M-s> <c-w>l<c-w><Bar>
+"nnoremap <Esc>n <C-W>k<C-W>_
+"nnoremap <Esc>t <C-W>j<C-W>_
+"nnoremap <Esc>h <c-w>h<c-w><Bar>
+"nnoremap <Esc>s <c-w>l<c-w><Bar>
 
 " Leader navigation of windows
 nmap <silent> <Leader>h :wincmd h<CR>
