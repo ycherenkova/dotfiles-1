@@ -33,20 +33,20 @@ filetype off
 set runtimepath+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-"set rtp+=~/powerline/powerline/bindings/vim
-set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+set rtp+=~/powerline/bindings/vim
+"set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 
 Bundle "duff/vim-scratch"
 Bundle "PeterRincker/vim-argumentative"
 Bundle 'Raimondi/delimitMate'
 "Bundle 'Valloric/YouCompleteMe'
-Bundle 'airblade/vim-gitgutter'
+"Bundle 'airblade/vim-gitgutter'
 Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdcommenter'
 "Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
+"Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-surround'
 Bundle 'uguu-org/vim-matrix-screensaver'
 Bundle 'vim-scripts/SearchComplete'
