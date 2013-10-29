@@ -42,7 +42,7 @@ Bundle 'Raimondi/delimitMate'
 "Bundle 'Valloric/YouCompleteMe'
 "Bundle 'airblade/vim-gitgutter'
 Bundle 'gmarik/vundle'
-Bundle 'kien/ctrlp.vim'
+"Bundle 'kien/ctrlp.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdcommenter'
 "Bundle 'scrooloose/nerdtree'
@@ -60,9 +60,9 @@ let delimitMate_expand_cr = 1
 let delimitMate_excluded_regions_enabled = 0
 
 let g:Powerline_symbols='fancy'
-let g:ctrlp_custom_ignore = {
-  \ 'dir': '\v[\/]review$'
-  \ }
+"let g:ctrlp_custom_ignore = {
+  "\ 'dir': '\v[\/]review$'
+  "\ }
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let NERDTreeShowBookmarks=1
 
@@ -196,6 +196,12 @@ noremap _ ^
 " Make < > shifts keep selection
 vnoremap < <gv
 vnoremap > >gv
+
+" copy to buffer
+vmap <C-y> :w! ~/.vimbuffer<CR>
+nmap <C-y> :.w! ~/.vimbuffer<CR>
+" paste from buffer
+map <C-p> :r ~/.vimbuffer<CR>
 
 " Delete Trailing White Space
 :command! DTWS :%s/\s\+$//g
