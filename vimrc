@@ -33,12 +33,14 @@ filetype off
 set runtimepath+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-set rtp+=~/powerline/bindings/vim
+"set rtp+=~/powerline/bindings/vim
 "set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 
 Bundle "duff/vim-scratch"
 Bundle "PeterRincker/vim-argumentative"
 Bundle 'Raimondi/delimitMate'
+Bundle 'bling/vim-airline'
+"Bundle 'mhinz/vim-signify'
 "Bundle 'Valloric/YouCompleteMe'
 "Bundle 'airblade/vim-gitgutter'
 Bundle 'gmarik/vundle'
@@ -55,11 +57,15 @@ Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/closetag.vim'
 Bundle 'vim-scripts/mru.vim'
 
+"let g:signify_vcs_list = ['git']
+
 let delimitMate_expand_cr = 1
 
 let delimitMate_excluded_regions_enabled = 0
 
-let g:Powerline_symbols='fancy'
+let g:airline_powerline_fonts = 1
+let ttimeoutlen = 50
+"let g:Powerline_symbols='fancy'
 "let g:ctrlp_custom_ignore = {
   "\ 'dir': '\v[\/]review$'
   "\ }
