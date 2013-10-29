@@ -33,14 +33,14 @@ filetype off
 set runtimepath+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-"set rtp+=~/powerline/bindings/vim
+set rtp+=~/powerline/bindings/vim
 "set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 
 Bundle "duff/vim-scratch"
 Bundle "PeterRincker/vim-argumentative"
 Bundle 'Raimondi/delimitMate'
-Bundle 'bling/vim-airline'
-"Bundle 'mhinz/vim-signify'
+"Bundle 'bling/vim-airline'
+Bundle 'mhinz/vim-signify'
 "Bundle 'Valloric/YouCompleteMe'
 "Bundle 'airblade/vim-gitgutter'
 Bundle 'gmarik/vundle'
@@ -57,20 +57,25 @@ Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/closetag.vim'
 Bundle 'vim-scripts/mru.vim'
 
-"let g:signify_vcs_list = ['git']
+let g:signify_vcs_list = ['git']
+highlight DiffAdd     cterm=bold ctermbg=none ctermfg=119
+highlight DiffDelete  cterm=bold ctermbg=none ctermfg=167
+highlight DiffChange  cterm=bold ctermbg=none ctermfg=227
+
+"let g:signify_disable_by_default = 1
 
 let delimitMate_expand_cr = 1
 
 let delimitMate_excluded_regions_enabled = 0
 
-let g:airline_powerline_fonts = 1
-let ttimeoutlen = 50
+"let g:airline_powerline_fonts = 1
+"let ttimeoutlen = 50
 "let g:Powerline_symbols='fancy'
 "let g:ctrlp_custom_ignore = {
   "\ 'dir': '\v[\/]review$'
   "\ }
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-let NERDTreeShowBookmarks=1
+"let NERDTreeShowBookmarks=1
 
 set nobackup
 set noswapfile
@@ -127,7 +132,8 @@ nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 "nmap <Leader>i :e sftp://chittle3@myweb.cs.uwindsor.ca/public_html/
 
 set pastetoggle=<F2>
-nmap <silent> <F3> :NERDTreeToggle<CR>
+"nmap <silent> <F3> :NERDTreeToggle<CR>
+nmap <silent> <F3> :SignifyToggle<CR>
 " Comment/uncomment lines of code. The 'gv' make the text stay selected
 vnoremap <silent> <F4> :call NERDComment('x', 'Toggle')<CR>gv
 nnoremap <silent> <F4> :call NERDComment('n', 'Toggle')<CR>
