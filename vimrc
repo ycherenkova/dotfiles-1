@@ -62,6 +62,9 @@ highlight DiffAdd     cterm=bold ctermbg=none ctermfg=119
 highlight DiffDelete  cterm=bold ctermbg=none ctermfg=167
 highlight DiffChange  cterm=bold ctermbg=none ctermfg=227
 
+let g:EclimCompletionMethod='omnifunc'
+set completeopt-=preview
+
 "let g:signify_disable_by_default = 1
 
 let delimitMate_expand_cr = 1
@@ -148,7 +151,7 @@ nmap <silent> <C-c> :let @/=""<CR>
 nmap <Leader>w :w<CR>
 
 " Global replace of word under cursor
-nmap <Leader>S :%s/\<<C-r><C-w>\>//g<Left><Left>
+nmap <Leader>r :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 " Window Min Height
 set wmh=0
