@@ -41,7 +41,7 @@ Bundle "PeterRincker/vim-argumentative"
 Bundle 'Raimondi/delimitMate'
 "Bundle 'bling/vim-airline'
 Bundle 'mhinz/vim-signify'
-"Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 "Bundle 'airblade/vim-gitgutter'
 Bundle 'gmarik/vundle'
 "Bundle 'kien/ctrlp.vim'
@@ -155,6 +155,10 @@ nmap <Leader>r :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 " Window Min Height
 set wmh=0
+nnoremap <M-s> gt
+nnoremap <M-h> gT
+nnoremap <Esc>s gt
+nnoremap <Esc>h gT
 "nnoremap <M-Up> <C-W>k<C-W>_
 "nnoremap <M-Down> <C-W>j<C-W>_
 "nnoremap <M-Left> <c-w>h<c-w><Bar>
