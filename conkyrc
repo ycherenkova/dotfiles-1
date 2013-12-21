@@ -1,0 +1,106 @@
+background no
+font Sans:size=9
+#xftfont Sans:size=10
+use_xft yes
+xftalpha 0.9
+update_interval 2.0
+total_run_times 0
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 1200
+maximum_width 220
+draw_shades yes
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+default_color white
+default_shade_color black
+default_outline_color green
+alignment top_right
+gap_x 12
+gap_y 35
+no_buffers yes
+cpu_avg_samples 2
+override_utf8_locale no
+uppercase yes # set to yes if you want all text to be in uppercase
+
+# SYSTEM
+TEXT
+${font Sans:style=Bold:size=14}${color1}${alignc}System
+${font Sans:size=9}
+# HOSTNAME / UPTIME / TEMP
+Hostname: $alignr$nodename
+Uptime: $alignr$uptime
+Temp: ${alignr}${acpitemp}C
+
+${font Sans:style=Bold:size=14}${color1}${alignc}Processor
+${font Sans:size=9}
+# CPU1 - CPU8
+CPU1 ${alignr}${cpu cpu1}%
+${cpubar 8 cpu1}
+CPU2 ${alignr}${cpu cpu2}%
+${cpubar 8 cpu2}
+CPU3 ${alignr}${cpu cpu3}%
+${cpubar 8 cpu3}
+CPU4 ${alignr}${cpu cpu4}%
+${cpubar 8 cpu4}
+#CPU5 ${alignr}${cpu cpu5}%
+#${cpubar 8 cpu5}
+#CPU6 ${alignr}${cpu cpu6}%
+#${cpubar 8 cpu6}
+#CPU7 ${alignr}${cpu cpu7}%
+#${cpubar 8 cpu7}
+#CPU8 ${alignr}${cpu cpu8}%
+#${cpubar 8 cpu8}
+
+# Highest CPU Usage
+Highest CPU $alignr CPU% MEM%
+${hr 1}
+${top name 1}$alignr${top cpu 1}${top mem 1}
+${top name 2}$alignr${top cpu 2}${top mem 2}
+${top name 3}$alignr${top cpu 3}${top mem 3}
+
+# RAM / SWAP
+${font Sans:style=Bold:size=14}${color1}${alignc}Memory
+${font Sans:size=9}
+Ram ${alignr}$mem / $memmax ($memperc%)
+${membar 8}
+swap ${alignr}$swap / $swapmax ($swapperc%)
+${swapbar 8}
+
+# Highest Mem Usage
+Highest MEM $alignr CPU% MEM%
+${hr 1}
+${top_mem name 1}$alignr${top_mem cpu 1}${top_mem mem 1}
+${top_mem name 2}$alignr${top_mem cpu 2}${top_mem mem 2}
+${top_mem name 3}$alignr${top_mem cpu 3}${top_mem mem 3}
+
+# FILESYSTEM
+${font Sans:style=Bold:size=14}${color1}${alignc}Filesystem
+${font Sans:size=9}
+Root: ${alignr}${fs_used /} / ${fs_size /}
+${fs_bar 8 /}
+Home: ${alignr}${fs_used /home} / ${fs_size /home}
+${fs_bar 8 /home}
+# NETWORK
+${if_existing /sys/class/net/wlan0/operstate}${if_existing /sys/class/net/wlan0/operstate up}
+# Wireless Network
+${font Sans:style=Bold:size=14}${color1}${alignc}NETWORK-WIFI
+${font Sans:size=9}
+Down ${downspeedf wlan0} k/s ${alignr}Up ${upspeedf wlan0} k/s
+${downspeedgraph wlan0 25,107} ${alignr}${upspeedgraph wlan0 25,107}
+Total ${totaldown wlan0} ${alignr}Total ${totalup wlan0}
+${endif}${endif}${if_existing /sys/class/net/eth0/operstate}${if_existing /sys/class/net/eth0/operstate up}
+# Wired Network
+${font Sans:style=Bold:size=14}${color1}${alignc}NETWORK-WIRED
+${font Sans:size=9}
+Down ${downspeedf eth0} k/s ${alignr}Up ${upspeedf eth0} k/s
+${downspeedgraph eth0 25,107} ${alignr}${upspeedgraph eth0 25,107}
+Total ${totaldown eth0} ${alignr}Total ${totalup eth0}
+${endif}${endif}
+
+${alignc}${time %I:%M %p}
+${alignc}${time %A}, ${time %B} ${time %d}, ${time %Y}
