@@ -128,6 +128,9 @@ set noerrorbells
 let mapleader=","
 let maplocalleader=","
 
+noremap <silent> <buffer> <Leader>i :JavaImport<cr>
+noremap <silent> <buffer> <Leader>d :JavaDocSearch -x declarations<cr>
+
 " Disable entering EX Mode.
 nnoremap Q <nop>
 
@@ -191,7 +194,7 @@ nmap <silent> <Leader>T :wincmd J<CR>
 nmap <silent> <Leader>N :wincmd K<CR>
 nmap <silent> <Leader>S :wincmd L<CR>
 
-nmap <silent> <Leader>dv :e ~/Dropbox/dotfiles/vimrc<CR>
+"nmap <silent> <Leader>dv :e ~/Dropbox/dotfiles/vimrc<CR>
 nmap <silent> <Leader>v :e $MYVIMRC<CR>
 
 " Dvorak remap

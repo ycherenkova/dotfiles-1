@@ -1,0 +1,13 @@
+[color]
+	ui = auto
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[user]
+	email = nichittle@gmail.com
+	name = Nicholas Chittle
+[push]
+	default = simple
+[alias]
+  lg = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
