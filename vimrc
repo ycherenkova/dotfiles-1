@@ -15,6 +15,13 @@ if has('gui_running')
   set guioptions-=r
   set guioptions-=R
 else
+  " Powerline update statusline faster.
+  set ttimeoutlen=10
+  augroup FastEscape
+    autocmd!
+    au InsertEnter * set timeoutlen=0
+    au InsertLeave * set timeoutlen=1000
+  augroup END
   "Some highlight colors for basic 8 color terminals.
   "Highlights the status line so we know what split were on
   "hi StatusLine ctermfg=15 ctermbg=1 cterm=bold
