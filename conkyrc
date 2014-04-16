@@ -83,8 +83,10 @@ ${font Sans:style=Bold:size=14}${color1}${alignc}Filesystem
 ${font Sans:size=9}
 Root: ${alignr}${fs_used /} / ${fs_size /}
 ${fs_bar 8 /}
-Home: ${alignr}${fs_used /home} / ${fs_size /home}
-${fs_bar 8 /home}
+Windows OS: ${alignr}${fs_used /media/windows}  ${fs_size /media/windows}
+${fs_bar 8 /media/windows}
+Skynet: ${alignr}${fs_used /media/skynet} / ${fs_size /media/skynet}
+${fs_bar 8 /media/skynet}
 # NETWORK
 ${if_existing /sys/class/net/wlan0/operstate}${if_existing /sys/class/net/wlan0/operstate up}
 # Wireless Network

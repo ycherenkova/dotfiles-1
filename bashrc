@@ -1,5 +1,4 @@
 
-
 # .xsession-errors can grow huge... remove it
 #if [ ! -h $HOME/.xsession-errors ]
 #then
@@ -17,6 +16,10 @@
 if [ -z "$SSH_CONNECTION" ]; then
   . ~/powerline/bindings/bash/powerline.sh
 fi
+
+export ANDROID_SDK="${HOME}/AndroidSDK/sdk"
+export ANDROID_NDK="${HOME}/AndroidNDK"
+export PATH="$PATH:$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools:$ANDROID_NDK"
 
 export TERM=xterm-256color
 export EDITOR=vim
