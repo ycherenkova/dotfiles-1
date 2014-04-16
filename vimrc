@@ -249,7 +249,7 @@ function! HighlightTooLongLines()
   endif
 endfunction
 
-au FileType text,cpp setlocal textwidth=80
+au FileType text,cpp,tex setlocal textwidth=80
 au FileType java setlocal textwidth=100
 
 au BufEnter,BufWinEnter * call HighlightTooLongLines()
@@ -258,6 +258,9 @@ au BufEnter,BufWinEnter * call HighlightTooLongLines()
 au VimEnter,ColorScheme * highlight ExtraWhitespace guibg=red ctermbg=red
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhitespace /\s\+$/
+
+au FileType tex setlocal spell
+highlight SpellBad ctermfg=Red term=Reverse guisp=Red gui=undercurl ctermbg=White
 
 " Map caps lock to escape
 function! SetCapsLockToEscape()
