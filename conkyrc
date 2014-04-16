@@ -85,6 +85,8 @@ Root: ${alignr}${fs_used /} / ${fs_size /}
 ${fs_bar 8 /}
 Windows OS: ${alignr}${fs_used /media/windows}  ${fs_size /media/windows}
 ${fs_bar 8 /media/windows}
+Data: ${alignr}${fs_used /media/Data}  ${fs_size /media/Data}
+${fs_bar 8 /media/Data}
 Skynet: ${alignr}${fs_used /media/skynet} / ${fs_size /media/skynet}
 ${fs_bar 8 /media/skynet}
 # NETWORK
