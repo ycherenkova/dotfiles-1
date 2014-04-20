@@ -43,8 +43,8 @@ call vundle#rc()
 set rtp+=~/powerline/bindings/vim
 "set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 
-Bundle "duff/vim-scratch"
-Bundle "PeterRincker/vim-argumentative"
+Bundle 'duff/vim-scratch'
+Bundle 'PeterRincker/vim-argumentative'
 Bundle 'Raimondi/delimitMate'
 "Bundle 'bling/vim-airline'
 Bundle 'mhinz/vim-signify'
@@ -56,7 +56,7 @@ Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdcommenter'
 "Bundle 'scrooloose/nerdtree'
-"Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-surround'
 Bundle 'uguu-org/vim-matrix-screensaver'
 Bundle 'vim-scripts/SearchComplete'
@@ -64,13 +64,22 @@ Bundle 'vim-scripts/TeTrIs.vim'
 Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/closetag.vim'
 Bundle 'vim-scripts/mru.vim'
+"Bundle 'ervandew/supertab'
+"Bundle 'vim-scripts/snipMate'
+Bundle 'vim-scripts/javacomplete'
+
+"ctags --recurse --langmap=Java:.java --languages=Java --verbose -f ~/.vim/tags $ANDROID_SDK/sources 
+set tags+=~/.vim/tags
+autocmd Filetype java setlocal omnifunc=javacomplete#Complete
+
+"https://github.com/bpowell/vim-android
 
 let g:signify_vcs_list = ['git']
 highlight DiffAdd     cterm=bold ctermbg=none ctermfg=119
 highlight DiffDelete  cterm=bold ctermbg=none ctermfg=167
 highlight DiffChange  cterm=bold ctermbg=none ctermfg=227
 
-let g:EclimCompletionMethod='omnifunc'
+"let g:EclimCompletionMethod='omnifunc'
 set completeopt-=preview
 
 "let g:signify_disable_by_default = 1

@@ -18,8 +18,11 @@ if [ -z "$SSH_CONNECTION" ]; then
 fi
 
 export ANDROID_SDK="${HOME}/AndroidSDK/sdk"
+export ANDROID_HOME=$ANDROID_SDK
 export ANDROID_NDK="${HOME}/AndroidNDK"
 export PATH="$PATH:$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools:$ANDROID_NDK"
 
 export TERM=xterm-256color
 export EDITOR=vim
+export ECLIPSE_HOME="${HOME}/AndroidSDK/eclipse"
+export NDKROOT=$ANDROID_NDK
