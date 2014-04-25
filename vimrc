@@ -37,40 +37,43 @@ else
 endif
 
 filetype off
-set runtimepath+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'duff/vim-scratch'
+Plugin 'PeterRincker/vim-argumentative'
+Plugin 'Raimondi/delimitMate'
+"Plugin 'bling/vim-airline'
+Plugin 'mhinz/vim-signify'
+Plugin 'Valloric/YouCompleteMe'
+"Plugin 'airblade/vim-gitgutter'
+"Plugin 'kien/ctrlp.vim'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/nerdcommenter'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-surround'
+Plugin 'uguu-org/vim-matrix-screensaver'
+Plugin 'vim-scripts/SearchComplete'
+Plugin 'vim-scripts/TeTrIs.vim'
+Plugin 'vim-scripts/a.vim'
+Plugin 'vim-scripts/closetag.vim'
+Plugin 'vim-scripts/mru.vim'
+"Plugin 'ervandew/supertab'
+"Plugin 'vim-scripts/snipMate'
+Plugin 'vim-scripts/javacomplete'
+
+call vundle#end()
 
 set rtp+=~/powerline/bindings/vim
 "set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 
-Bundle 'duff/vim-scratch'
-Bundle 'PeterRincker/vim-argumentative'
-Bundle 'Raimondi/delimitMate'
-"Bundle 'bling/vim-airline'
-Bundle 'mhinz/vim-signify'
-Bundle 'Valloric/YouCompleteMe'
-"Bundle 'airblade/vim-gitgutter'
-Bundle 'gmarik/vundle'
-"Bundle 'kien/ctrlp.vim'
-Bundle 'LaTeX-Box-Team/LaTeX-Box'
-Bundle 'majutsushi/tagbar'
-Bundle 'scrooloose/nerdcommenter'
-"Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-surround'
-Bundle 'uguu-org/vim-matrix-screensaver'
-Bundle 'vim-scripts/SearchComplete'
-Bundle 'vim-scripts/TeTrIs.vim'
-Bundle 'vim-scripts/a.vim'
-Bundle 'vim-scripts/closetag.vim'
-Bundle 'vim-scripts/mru.vim'
-"Bundle 'ervandew/supertab'
-"Bundle 'vim-scripts/snipMate'
-Bundle 'vim-scripts/javacomplete'
-
 "ctags --recurse --langmap=Java:.java --languages=Java --verbose -f ~/.vim/tags $ANDROID_SDK/sources 
 set tags+=~/.vim/tags
 autocmd Filetype java setlocal omnifunc=javacomplete#Complete
+autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
 
 "https://github.com/bpowell/vim-android
 
