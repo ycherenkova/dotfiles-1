@@ -47,7 +47,6 @@ Plugin 'Raimondi/delimitMate'
 "Plugin 'bling/vim-airline'
 Plugin 'mhinz/vim-signify'
 Plugin 'Valloric/YouCompleteMe'
-"Plugin 'airblade/vim-gitgutter'
 "Plugin 'kien/ctrlp.vim'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'majutsushi/tagbar'
@@ -75,8 +74,6 @@ set tags+=~/.vim/tags
 autocmd Filetype java setlocal omnifunc=javacomplete#Complete
 autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
 
-"https://github.com/bpowell/vim-android
-
 let g:signify_vcs_list = ['git']
 highlight DiffAdd     cterm=bold ctermbg=none ctermfg=119
 highlight DiffDelete  cterm=bold ctermbg=none ctermfg=167
@@ -92,13 +89,11 @@ let delimitMate_expand_cr = 1
 let delimitMate_excluded_regions_enabled = 0
 
 "let g:airline_powerline_fonts = 1
-"let ttimeoutlen = 50
 "let g:Powerline_symbols='fancy'
 "let g:ctrlp_custom_ignore = {
   "\ 'dir': '\v[\/]review$'
   "\ }
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-"let NERDTreeShowBookmarks=1
 
 set nobackup
 set noswapfile
@@ -155,7 +150,6 @@ vnoremap <leader>y "+y
 
 " Expands it to the current file path.
 nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-"nmap <Leader>i :e sftp://chittle3@myweb.cs.uwindsor.ca/public_html/
 
 set pastetoggle=<F2>
 "nmap <silent> <F3> :NERDTreeToggle<CR>
@@ -233,8 +227,6 @@ noremap N L
 noremap - $
 noremap _ ^
 
-"imap jj <Esc>
-
 " Make < > shifts keep selection
 vnoremap < <gv
 vnoremap > >gv
@@ -247,8 +239,9 @@ map <C-p> :r ~/.vimbuffer<CR>
 
 " Delete Trailing White Space
 :command! DTWS :%s/\s\+$//g
-" Reverts the file to the state it was in when it was last saved
+
 " LastSavePoint
+" Reverts the file to the state it was in when it was last saved
 :command! LSP :e!
 
 :command! SudoSave :w !sudo tee %
@@ -284,7 +277,6 @@ function! ResetCapsLock()
   call system("xmodmap -e 'keycode 0x42 = Caps_Lock' && xmodmap -e 'add lock = Caps_lock'")
 endfunction
 
-"au VimEnter,InsertEnter * call SetCapsLockToEscape()
 if !has('win32')
   au VimEnter * call SetCapsLockToEscape()
   au VimLeave * call ResetCapsLock()
