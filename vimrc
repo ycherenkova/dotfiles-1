@@ -51,7 +51,6 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdcommenter'
-"Plugin 'scrooloose/nerdtree'
 "Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
 Plugin 'uguu-org/vim-matrix-screensaver'
@@ -63,6 +62,11 @@ Plugin 'vim-scripts/mru.vim'
 "Plugin 'ervandew/supertab'
 "Plugin 'vim-scripts/snipMate'
 Plugin 'vim-scripts/javacomplete'
+"Plugin 'vim-scripts/JavaImp.vim--Lee'
+
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'tpope/vim-repeat'
+"Plugin 'vim-scripts/ZoomWin'
 
 call vundle#end()
 
