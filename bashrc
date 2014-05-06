@@ -14,7 +14,7 @@
 # This tests if the $SSH_CONNECTION variable is empty, if so we probably don't
 # want to use powerline over ssh, as it might look funny
 if [ -z "$SSH_CONNECTION" ]; then
-  . /home/chittle/powerline/bindings/bash/powerline.sh
+  . ${HOME}/powerline/bindings/bash/powerline.sh
 fi
 
 export ANDROID_SDK="${HOME}/AndroidSDK/sdk"
