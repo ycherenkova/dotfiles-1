@@ -161,6 +161,10 @@ nmap <silent> <F3> :SignifyToggle<CR>
 " Comment/uncomment lines of code. The 'gv' make the text stay selected
 vnoremap <silent> <F4> :call NERDComment('x', 'Toggle')<CR>gv
 nnoremap <silent> <F4> :call NERDComment('n', 'Toggle')<CR>
+
+vnoremap <silent> <Leader>c :call NERDComment('x', 'Toggle')<CR>gv
+nnoremap <silent> <Leader>c :call NERDComment('n', 'Toggle')<CR>
+
 " Used to switch between Header file and source files
 nnoremap <silent> <F5> :A<CR>
 nnoremap <silent> <F6> :TagbarToggle<CR>
