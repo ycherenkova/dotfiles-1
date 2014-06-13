@@ -26,3 +26,9 @@ export TERM=xterm-256color
 export EDITOR=vim
 export ECLIPSE_HOME="${HOME}/AndroidSDK/eclipse"
 export NDKROOT=$ANDROID_NDK
+
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=${HOME}/go
+export PATH=$PATH:${GOPATH}/bin
+
+alias cdgo="cd ~/go"
