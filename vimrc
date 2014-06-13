@@ -40,7 +40,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'nsf/gocode'
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'gmarik/Vundle.vim'
 Plugin 'duff/vim-scratch'
 Plugin 'PeterRincker/vim-argumentative'

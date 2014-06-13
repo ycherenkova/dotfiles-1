@@ -1,7 +1,7 @@
 #!/bin/bash
 
 startTime=$(date)
-vim -s ${HOME}/dotfiles/scripts/update.vim
+vim +PluginClean! +PluginInstall! +qall
 endTime=$(date)
 
 file=${HOME}/.vim/last-updated-vim.txt
