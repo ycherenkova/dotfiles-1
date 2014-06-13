@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Crontab might look something like:
+# 00 04 * * * /home/chittle/dotfiles/scripts/update-vim-plugins.sh
+# min hour dom month dow script
+
 startTime=$(date)
 vim +PluginClean! +PluginInstall! +qall
 endTime=$(date)
