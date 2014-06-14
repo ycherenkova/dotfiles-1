@@ -5,7 +5,7 @@
 # min hour dom month dow script
 
 startTime=$(date)
-vim +PluginClean! +PluginInstall! +qall
+vim +PluginClean! +PluginInstall! +qall > /dev/null
 endTime=$(date)
 
 file=${HOME}/.vim/last-updated-vim.txt
