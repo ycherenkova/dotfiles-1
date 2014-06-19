@@ -47,6 +47,7 @@ Plugin 'PeterRincker/vim-argumentative'
 Plugin 'Raimondi/delimitMate'
 "Plugin 'bling/vim-airline'
 Plugin 'mhinz/vim-signify'
+Plugin 'Valloric/MatchTagAlways'
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'kien/ctrlp.vim'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
@@ -83,6 +84,15 @@ let g:signify_vcs_list = ['git']
 highlight DiffAdd     cterm=bold ctermbg=none ctermfg=119
 highlight DiffDelete  cterm=bold ctermbg=none ctermfg=167
 highlight DiffChange  cterm=bold ctermbg=none ctermfg=227
+
+let g:mta_use_matchparen_group = 0
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \ 'soy' : 1,
+    \}
 
 "let g:EclimCompletionMethod='omnifunc'
 set completeopt-=preview
