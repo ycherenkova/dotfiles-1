@@ -40,35 +40,33 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
-Plugin 'gmarik/Vundle.vim'
-Plugin 'duff/vim-scratch'
+"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'bling/vim-airline'
+"Plugin 'ervandew/supertab'
+"Plugin 'kien/ctrlp.vim'
+"Plugin 'scrooloose/syntastic'
+"Plugin 'vim-scripts/JavaImp.vim--Lee'
+"Plugin 'vim-scripts/snipMate'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'Lokaltog/vim-easymotion'
 Plugin 'PeterRincker/vim-argumentative'
 Plugin 'Raimondi/delimitMate'
-"Plugin 'bling/vim-airline'
-Plugin 'mhinz/vim-signify'
 Plugin 'Valloric/MatchTagAlways'
-"Plugin 'Valloric/YouCompleteMe'
-"Plugin 'kien/ctrlp.vim'
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'duff/vim-scratch'
+Plugin 'gmarik/Vundle.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'mhinz/vim-signify'
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'scrooloose/nerdcommenter'
-"Plugin 'scrooloose/syntastic'
+Plugin 'sukima/xmledit'
+Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'uguu-org/vim-matrix-screensaver'
 Plugin 'vim-scripts/SearchComplete'
 Plugin 'vim-scripts/TeTrIs.vim'
 Plugin 'vim-scripts/a.vim'
-Plugin 'vim-scripts/closetag.vim'
-Plugin 'vim-scripts/mru.vim'
-"Plugin 'ervandew/supertab'
-"Plugin 'vim-scripts/snipMate'
 Plugin 'vim-scripts/javacomplete'
-"Plugin 'vim-scripts/JavaImp.vim--Lee'
-
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'tpope/vim-repeat'
-"Plugin 'vim-scripts/ZoomWin'
+Plugin 'vim-scripts/mru.vim'
 
 call vundle#end()
 
@@ -85,6 +83,8 @@ highlight DiffAdd     cterm=bold ctermbg=none ctermfg=119
 highlight DiffDelete  cterm=bold ctermbg=none ctermfg=167
 highlight DiffChange  cterm=bold ctermbg=none ctermfg=227
 
+let g:xmledit_enable_html = 1
+
 let g:mta_use_matchparen_group = 0
 let g:mta_filetypes = {
     \ 'html' : 1,
@@ -98,6 +98,9 @@ let g:mta_filetypes = {
 set completeopt-=preview
 
 "let g:signify_disable_by_default = 1
+
+" Remove the <:> matchpairs on html files as it will mess with xmledit plugin.
+au FileType html let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 let delimitMate_expand_cr = 1
 
