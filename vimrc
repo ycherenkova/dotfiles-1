@@ -53,6 +53,7 @@ Plugin 'PeterRincker/vim-argumentative'
 Plugin 'Raimondi/delimitMate'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'duff/vim-scratch'
+Plugin 'epeli/slimux'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'mhinz/vim-signify'
@@ -73,7 +74,7 @@ call vundle#end()
 set rtp+=~/powerline/bindings/vim
 "set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 
-"ctags --recurse --langmap=Java:.java --languages=Java --verbose -f ~/.vim/tags $ANDROID_SDK/sources 
+"ctags --recurse --langmap=Java:.java --languages=Java --verbose -f ~/.vim/tags $ANDROID_SDK/sources
 set tags+=~/.vim/tags
 autocmd Filetype java setlocal omnifunc=javacomplete#Complete
 autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
@@ -153,6 +154,9 @@ set noerrorbells
 
 set clipboard=unnamed,unnamedplus
 
+set wildmenu
+set wildmode=longest:full,full
+
 let mapleader=","
 let maplocalleader=","
 
@@ -172,14 +176,15 @@ vnoremap <leader>y "+y
 nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 set pastetoggle=<F2>
-"nmap <silent> <F3> :NERDTreeToggle<CR>
+
 nmap <silent> <F3> :SignifyToggle<CR>
+
 " Comment/uncomment lines of code. The 'gv' make the text stay selected
 vnoremap <silent> <F4> :call NERDComment('x', 'Toggle')<CR>gv
 nnoremap <silent> <F4> :call NERDComment('n', 'Toggle')<CR>
 
-vnoremap <silent> <Leader>c :call NERDComment('x', 'Toggle')<CR>gv
-nnoremap <silent> <Leader>c :call NERDComment('n', 'Toggle')<CR>
+nnoremap <silent> <Leader>c :SlimuxREPLSendLine<CR>
+vnoremap <silent> <Leader>c :SlimuxREPLSendSelection<CR>gv
 
 " Used to switch between Header file and source files
 nnoremap <silent> <F5> :A<CR>
