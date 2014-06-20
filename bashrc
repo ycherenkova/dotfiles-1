@@ -17,6 +17,8 @@
   . ${HOME}/powerline/bindings/bash/powerline.sh
 #fi
 
+xmodmap -e 'clear lock' && xmodmap -e 'keycode 0x42 = Escape'
+
 export ANDROID_SDK="${HOME}/AndroidSDK/sdk"
 export ANDROID_HOME=$ANDROID_SDK
 export ANDROID_NDK="${HOME}/AndroidNDK"

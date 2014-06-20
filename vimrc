@@ -151,6 +151,8 @@ set cindent
 set novisualbell
 set noerrorbells
 
+set clipboard=unnamed,unnamedplus
+
 let mapleader=","
 let maplocalleader=","
 
@@ -299,10 +301,11 @@ function! ResetCapsLock()
   call system("xmodmap -e 'keycode 0x42 = Caps_Lock' && xmodmap -e 'add lock = Caps_lock'")
 endfunction
 
-if !has('win32')
-  au VimEnter * call SetCapsLockToEscape()
-  au VimLeave * call ResetCapsLock()
-endif
+" Now caps lock is remapped in bashrc.
+"if !has('win32')
+  "au VimEnter * call SetCapsLockToEscape()
+  "au VimLeave * call ResetCapsLock()
+"endif
 
 if filereadable($HOME . "/.vimrc_local")
   source $HOME/.vimrc_local
