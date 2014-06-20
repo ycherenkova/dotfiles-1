@@ -64,10 +64,8 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'uguu-org/vim-matrix-screensaver'
 Plugin 'vim-scripts/SearchComplete'
-Plugin 'vim-scripts/TeTrIs.vim'
 Plugin 'vim-scripts/a.vim'
 Plugin 'vim-scripts/javacomplete'
-Plugin 'vim-scripts/mru.vim'
 
 call vundle#end()
 
@@ -95,10 +93,7 @@ let g:mta_filetypes = {
     \ 'soy' : 1,
     \}
 
-"let g:EclimCompletionMethod='omnifunc'
 set completeopt-=preview
-
-"let g:signify_disable_by_default = 1
 
 " Remove the <:> matchpairs on html files as it will mess with xmledit plugin.
 au FileType html let b:delimitMate_matchpairs = "(:),[:],{:}"
@@ -107,11 +102,6 @@ let delimitMate_expand_cr = 1
 
 let delimitMate_excluded_regions_enabled = 0
 
-"let g:airline_powerline_fonts = 1
-"let g:Powerline_symbols='fancy'
-"let g:ctrlp_custom_ignore = {
-  "\ 'dir': '\v[\/]review$'
-  "\ }
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
 set nobackup
@@ -183,12 +173,12 @@ nmap <silent> <F3> :SignifyToggle<CR>
 vnoremap <silent> <F4> :call NERDComment('x', 'Toggle')<CR>gv
 nnoremap <silent> <F4> :call NERDComment('n', 'Toggle')<CR>
 
-nnoremap <silent> <Leader>c :SlimuxREPLSendLine<CR>
-vnoremap <silent> <Leader>c :SlimuxREPLSendSelection<CR>gv
-
 " Used to switch between Header file and source files
 nnoremap <silent> <F5> :A<CR>
 nnoremap <silent> <F6> :TagbarToggle<CR>
+
+nnoremap <silent> <Leader>c :SlimuxREPLSendLine<CR>
+vnoremap <silent> <Leader>c :SlimuxREPLSendSelection<CR>gv
 
 " Ctrl-c Clears the current search query to stop the highlighting
 nmap <silent> <C-c> :let @/=""<CR>
@@ -198,25 +188,6 @@ nmap <Leader>w :w<CR>
 
 " Global replace of word under cursor
 nmap <Leader>r :%s/\<<C-r><C-w>\>//g<Left><Left>
-
-" Window Min Height
-set wmh=0
-nnoremap <M-s> gt
-nnoremap <M-h> gT
-nnoremap <Esc>s gt
-nnoremap <Esc>h gT
-"nnoremap <M-Up> <C-W>k<C-W>_
-"nnoremap <M-Down> <C-W>j<C-W>_
-"nnoremap <M-Left> <c-w>h<c-w><Bar>
-"nnoremap <M-Right> <c-w>l<c-w><Bar>
-"nnoremap <M-n> <C-W>k<C-W>_
-"nnoremap <M-t> <C-W>j<C-W>_
-"nnoremap <M-h> <c-w>h<c-w><Bar>
-"nnoremap <M-s> <c-w>l<c-w><Bar>
-"nnoremap <Esc>n <C-W>k<C-W>_
-"nnoremap <Esc>t <C-W>j<C-W>_
-"nnoremap <Esc>h <c-w>h<c-w><Bar>
-"nnoremap <Esc>s <c-w>l<c-w><Bar>
 
 " Leader navigation of windows
 nmap <silent> <Leader>h :wincmd h<CR>
@@ -230,7 +201,6 @@ nmap <silent> <Leader>T :wincmd J<CR>
 nmap <silent> <Leader>N :wincmd K<CR>
 nmap <silent> <Leader>S :wincmd L<CR>
 
-"nmap <silent> <Leader>dv :e ~/Dropbox/dotfiles/vimrc<CR>
 nmap <silent> <Leader>v :e $MYVIMRC<CR>
 
 " Dvorak remap
