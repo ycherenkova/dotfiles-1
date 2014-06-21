@@ -17,6 +17,10 @@
   . ${HOME}/powerline/bindings/bash/powerline.sh
 #fi
 
+xmodmap -e 'clear lock' && xmodmap -e 'keycode 0x42 = Escape'
+bind "TAB:menu-complete"
+bind "set show-all-if-ambiguous on"
+
 export ANDROID_SDK="${HOME}/AndroidSDK/sdk"
 export ANDROID_HOME=$ANDROID_SDK
 export ANDROID_NDK="${HOME}/AndroidNDK"
@@ -32,3 +36,4 @@ export GOPATH=${HOME}/go
 export PATH=$PATH:${GOPATH}/bin
 
 alias cdgo="cd ~/go"
+alias gcp="git commit -am 'Alias Commit'"

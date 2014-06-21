@@ -40,41 +40,39 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'nsf/gocode', {'rtp': 'vim/'}
-Plugin 'gmarik/Vundle.vim'
-Plugin 'duff/vim-scratch'
+"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'bling/vim-airline'
+"Plugin 'ervandew/supertab'
+"Plugin 'kien/ctrlp.vim'
+"Plugin 'scrooloose/syntastic'
+"Plugin 'vim-scripts/JavaImp.vim--Lee'
+"Plugin 'vim-scripts/snipMate'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'Lokaltog/vim-easymotion'
 Plugin 'PeterRincker/vim-argumentative'
 Plugin 'Raimondi/delimitMate'
-"Plugin 'bling/vim-airline'
-Plugin 'mhinz/vim-signify'
-"Plugin 'Valloric/YouCompleteMe'
-"Plugin 'kien/ctrlp.vim'
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'Valloric/MatchTagAlways'
+Plugin 'duff/vim-scratch'
+Plugin 'epeli/slimux'
+Plugin 'gmarik/Vundle.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'mhinz/vim-signify'
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'scrooloose/nerdcommenter'
-"Plugin 'scrooloose/syntastic'
+Plugin 'sukima/xmledit'
+Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'uguu-org/vim-matrix-screensaver'
 Plugin 'vim-scripts/SearchComplete'
-Plugin 'vim-scripts/TeTrIs.vim'
 Plugin 'vim-scripts/a.vim'
-Plugin 'vim-scripts/closetag.vim'
-Plugin 'vim-scripts/mru.vim'
-"Plugin 'ervandew/supertab'
-"Plugin 'vim-scripts/snipMate'
 Plugin 'vim-scripts/javacomplete'
-"Plugin 'vim-scripts/JavaImp.vim--Lee'
-
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'tpope/vim-repeat'
-"Plugin 'vim-scripts/ZoomWin'
 
 call vundle#end()
 
 set rtp+=~/powerline/bindings/vim
 "set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 
-"ctags --recurse --langmap=Java:.java --languages=Java --verbose -f ~/.vim/tags $ANDROID_SDK/sources 
+"ctags --recurse --langmap=Java:.java --languages=Java --verbose -f ~/.vim/tags $ANDROID_SDK/sources
 set tags+=~/.vim/tags
 autocmd Filetype java setlocal omnifunc=javacomplete#Complete
 autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
@@ -84,20 +82,26 @@ highlight DiffAdd     cterm=bold ctermbg=none ctermfg=119
 highlight DiffDelete  cterm=bold ctermbg=none ctermfg=167
 highlight DiffChange  cterm=bold ctermbg=none ctermfg=227
 
-"let g:EclimCompletionMethod='omnifunc'
+let g:xmledit_enable_html = 1
+
+let g:mta_use_matchparen_group = 0
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \ 'soy' : 1,
+    \}
+
 set completeopt-=preview
 
-"let g:signify_disable_by_default = 1
+" Remove the <:> matchpairs on html files as it will mess with xmledit plugin.
+au FileType html let b:delimitMate_matchpairs = "(:),[:],{:}"
 
 let delimitMate_expand_cr = 1
 
 let delimitMate_excluded_regions_enabled = 0
 
-"let g:airline_powerline_fonts = 1
-"let g:Powerline_symbols='fancy'
-"let g:ctrlp_custom_ignore = {
-  "\ 'dir': '\v[\/]review$'
-  "\ }
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
 set nobackup
@@ -138,6 +142,11 @@ set cindent
 set novisualbell
 set noerrorbells
 
+set clipboard=unnamed,unnamedplus
+
+set wildmenu
+set wildmode=longest:full,full
+
 let mapleader=","
 let maplocalleader=","
 
@@ -157,18 +166,19 @@ vnoremap <leader>y "+y
 nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 set pastetoggle=<F2>
-"nmap <silent> <F3> :NERDTreeToggle<CR>
+
 nmap <silent> <F3> :SignifyToggle<CR>
+
 " Comment/uncomment lines of code. The 'gv' make the text stay selected
 vnoremap <silent> <F4> :call NERDComment('x', 'Toggle')<CR>gv
 nnoremap <silent> <F4> :call NERDComment('n', 'Toggle')<CR>
 
-vnoremap <silent> <Leader>c :call NERDComment('x', 'Toggle')<CR>gv
-nnoremap <silent> <Leader>c :call NERDComment('n', 'Toggle')<CR>
-
 " Used to switch between Header file and source files
 nnoremap <silent> <F5> :A<CR>
 nnoremap <silent> <F6> :TagbarToggle<CR>
+
+nnoremap <silent> <Leader>c :SlimuxREPLSendLine<CR>
+vnoremap <silent> <Leader>c :SlimuxREPLSendSelection<CR>gv
 
 " Ctrl-c Clears the current search query to stop the highlighting
 nmap <silent> <C-c> :let @/=""<CR>
@@ -178,25 +188,6 @@ nmap <Leader>w :w<CR>
 
 " Global replace of word under cursor
 nmap <Leader>r :%s/\<<C-r><C-w>\>//g<Left><Left>
-
-" Window Min Height
-set wmh=0
-nnoremap <M-s> gt
-nnoremap <M-h> gT
-nnoremap <Esc>s gt
-nnoremap <Esc>h gT
-"nnoremap <M-Up> <C-W>k<C-W>_
-"nnoremap <M-Down> <C-W>j<C-W>_
-"nnoremap <M-Left> <c-w>h<c-w><Bar>
-"nnoremap <M-Right> <c-w>l<c-w><Bar>
-"nnoremap <M-n> <C-W>k<C-W>_
-"nnoremap <M-t> <C-W>j<C-W>_
-"nnoremap <M-h> <c-w>h<c-w><Bar>
-"nnoremap <M-s> <c-w>l<c-w><Bar>
-"nnoremap <Esc>n <C-W>k<C-W>_
-"nnoremap <Esc>t <C-W>j<C-W>_
-"nnoremap <Esc>h <c-w>h<c-w><Bar>
-"nnoremap <Esc>s <c-w>l<c-w><Bar>
 
 " Leader navigation of windows
 nmap <silent> <Leader>h :wincmd h<CR>
@@ -210,7 +201,6 @@ nmap <silent> <Leader>T :wincmd J<CR>
 nmap <silent> <Leader>N :wincmd K<CR>
 nmap <silent> <Leader>S :wincmd L<CR>
 
-"nmap <silent> <Leader>dv :e ~/Dropbox/dotfiles/vimrc<CR>
 nmap <silent> <Leader>v :e $MYVIMRC<CR>
 
 " Dvorak remap
@@ -286,10 +276,11 @@ function! ResetCapsLock()
   call system("xmodmap -e 'keycode 0x42 = Caps_Lock' && xmodmap -e 'add lock = Caps_lock'")
 endfunction
 
-if !has('win32')
-  au VimEnter * call SetCapsLockToEscape()
-  au VimLeave * call ResetCapsLock()
-endif
+" Now caps lock is remapped in bashrc.
+"if !has('win32')
+  "au VimEnter * call SetCapsLockToEscape()
+  "au VimLeave * call ResetCapsLock()
+"endif
 
 if filereadable($HOME . "/.vimrc_local")
   source $HOME/.vimrc_local
