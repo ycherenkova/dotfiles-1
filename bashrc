@@ -20,7 +20,7 @@
 xmodmap -e 'clear lock' && xmodmap -e 'keycode 0x42 = Escape'
 bind "TAB:menu-complete"
 bind "set show-all-if-ambiguous on"
-
+bind "set completion-display-width 2"
 export ANDROID_SDK="${HOME}/AndroidSDK/sdk"
 export ANDROID_HOME=$ANDROID_SDK
 export ANDROID_NDK="${HOME}/AndroidNDK"
