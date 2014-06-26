@@ -17,7 +17,7 @@
   . ${HOME}/powerline/bindings/bash/powerline.sh
 #fi
 
-xmodmap -e 'clear lock' && xmodmap -e 'keycode 0x42 = Escape'
+xmodmap -e 'clear lock' -e 'keycode 0x42 = Escape'
 bind "TAB:menu-complete"
 bind "set show-all-if-ambiguous on"
 bind "set completion-display-width 2"
