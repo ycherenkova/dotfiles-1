@@ -182,6 +182,8 @@ nnoremap <silent> <F6> :TagbarToggle<CR>
 nnoremap <silent> <Leader>c :SlimuxREPLSendLine<CR>
 vnoremap <silent> <Leader>c :SlimuxREPLSendSelection<CR>
 
+nnoremap <silent> <Leader>b :MBEFocus<CR>
+
 " Ctrl-c Clears the current search query to stop the highlighting
 nmap <silent> <C-c> :let @/=""<CR>
 
