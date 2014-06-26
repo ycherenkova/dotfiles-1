@@ -60,6 +60,7 @@ Plugin 'mhinz/vim-signify'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'sukima/xmledit'
+Plugin 'terryma/vim-expand-region'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'uguu-org/vim-matrix-screensaver'
@@ -229,6 +230,17 @@ noremap _ ^
 " Make < > shifts keep selection
 vnoremap < <gv
 vnoremap > >gv
+
+" Jump to end of pasted text
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
+
+" Select text that was just pasted.
+noremap gV `[v`]`
+
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 
 " copy to buffer
 vmap <C-y> :w! ~/.vimbuffer<CR>
