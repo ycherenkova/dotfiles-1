@@ -199,6 +199,7 @@ root.buttons(awful.util.table.join(
 globalkeys = awful.util.table.join(
 
     awful.key({ "Mod1", "Control" }, "l",   function() awful.util.spawn("gnome-screensaver-command --lock") end),
+    awful.key({ "Mod1", "Shift"   }, "b",   function() awful.util.spawn("google-chrome") end),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
@@ -213,7 +214,7 @@ globalkeys = awful.util.table.join(
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show({keygrabber=true}) end),
+    --awful.key({ modkey,           }, "w", function () mymainmenu:show({keygrabber=true}) end),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "t", function () awful.client.swap.byidx(  1)    end),
@@ -258,7 +259,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  function (c) awful.client.floating.toggle() c.ontop = not c.ontop end ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
-    awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
+    awful.key({ modkey,           }, "w",      awful.client.movetoscreen                        ),
     awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
     awful.key({ modkey,           }, "n",
@@ -372,4 +373,7 @@ end)
 
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+
+-- awful.util.spawn('~/.config/awesome/locker.sh')
+-- awful.util.spawn_with_shell('~/.config/awesome/locker.sh')
 -- }}}
