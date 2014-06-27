@@ -163,6 +163,7 @@ nnoremap <leader>p p<C-A>==yy
 
 " Yank to clipboard
 vnoremap <leader>y "+y
+vnoremap // y/<c-r>"<cr>
 
 " Expands it to the current file path.
 nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
