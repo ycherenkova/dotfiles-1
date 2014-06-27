@@ -60,13 +60,13 @@ Plugin 'majutsushi/tagbar'
 Plugin 'mhinz/vim-signify'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'sjl/gundo.vim'
 Plugin 'sukima/xmledit'
 Plugin 'terryma/vim-expand-region'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'uguu-org/vim-matrix-screensaver'
 Plugin 'vim-scripts/SearchComplete'
-Plugin 'vim-scripts/a.vim'
 Plugin 'vim-scripts/javacomplete'
 
 call vundle#end()
@@ -176,8 +176,11 @@ vnoremap <silent> <F4> :call NERDComment('x', 'Toggle')<CR>gv
 nnoremap <silent> <F4> :call NERDComment('n', 'Toggle')<CR>
 
 " Used to switch between Header file and source files
-nnoremap <silent> <F5> :A<CR>
+nnoremap <silent> <F5> :GundoToggle<CR>
 nnoremap <silent> <F6> :TagbarToggle<CR>
+
+let g:gundo_map_move_older = "t"
+let g:gundo_map_move_newer = "n"
 
 nnoremap <silent> <Leader>c :SlimuxREPLSendLine<CR>
 vnoremap <silent> <Leader>c :SlimuxREPLSendSelection<CR>
