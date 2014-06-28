@@ -17,7 +17,9 @@
   . ${HOME}/powerline/bindings/bash/powerline.sh
 #fi
 
-xmodmap -e 'clear lock' -e 'keycode 0x42 = Escape'
+if [ -n "$DISPLAY" ]; then
+  xmodmap -e 'clear lock' -e 'keycode 0x42 = Escape'
+fi
 bind "TAB:menu-complete"
 bind "set show-all-if-ambiguous on"
 bind "set completion-display-width 2"
@@ -26,7 +28,7 @@ export ANDROID_HOME=$ANDROID_SDK
 export ANDROID_NDK="${HOME}/AndroidNDK"
 export PATH="$PATH:$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools:$ANDROID_NDK"
 
-export TERM=xterm-256color
+#export TERM=xterm-256color
 export EDITOR=vim
 export ECLIPSE_HOME="${HOME}/AndroidSDK/eclipse"
 export NDKROOT=$ANDROID_NDK
