@@ -116,7 +116,7 @@ mytextclock = awful.widget.textclock()
 -- Keyboard map indicator and changer
 kbdcfg = {}
 kbdcfg.cmd = "setxkbmap"
-kbdcfg.layout = { { "dvorak", "dv" }, { "us", "us" } }
+kbdcfg.layout = { { "dvorak", "DV" }, { "us", "US" } }
 kbdcfg.current = 1  -- us is our default layout
 kbdcfg.widget = wibox.widget.textbox()
 kbdcfg.widget:set_text(" " .. kbdcfg.layout[kbdcfg.current][2] .. " ")
