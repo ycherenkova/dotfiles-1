@@ -71,7 +71,7 @@ Plugin 'vim-scripts/javacomplete'
 
 call vundle#end()
 
-set rtp+=~/powerline/bindings/vim
+"set rtp+=~/powerline/bindings/vim
 "set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 
 "ctags --recurse --langmap=Java:.java --languages=Java --verbose -f ~/.vim/tags $ANDROID_SDK/sources

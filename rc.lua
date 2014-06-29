@@ -41,7 +41,7 @@ end
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xterm"
+terminal = "urxvt"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -304,18 +304,18 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
-    awful.key({ modkey, "Shift"   }, "t",      function (c) c.ontop = not c.ontop            end)
+    awful.key({ modkey, "Shift"   }, "t",      function (c) c.ontop = not c.ontop            end),
+    awful.key({ modkey,           }, "m",
+        function (c)
+            c.maximized_horizontal = not c.maximized_horizontal
+            c.maximized_vertical   = not c.maximized_vertical
+        end)
     --awful.key({ modkey,           }, "n",
         --function (c)
             ---- The client currently has the input focus, so it cannot be
             ---- minimized, since minimized clients can't have the focus.
             --c.minimized = true
         --end),
-    --awful.key({ modkey,           }, "m",
-        --function (c)
-            --c.maximized_horizontal = not c.maximized_horizontal
-            --c.maximized_vertical   = not c.maximized_vertical
-        --end)
 )
 
 -- Bind all key numbers to tags.
