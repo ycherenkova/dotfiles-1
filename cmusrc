@@ -52,6 +52,7 @@ set format_trackwin=%3n. %t%= %y %d
 set format_trackwin_va=%3n. %t (%a)%= %y %d 
 set icecast_default_charset=ISO-8859-1
 set id3_default_charset=ISO-8859-1
+set input.cdio.cddb_url=freedb.freedb.org:8880
 set lib_sort=albumartist date album discnumber tracknumber title filename
 set mixer.alsa.channel=Master
 set mixer.alsa.device=default
@@ -106,8 +107,9 @@ bind common G win-bottom
 bind common I echo {}
 bind common L search-prev
 bind common M toggle play_library
-bind common N player-next
+bind common N win-page-up
 bind common P player-prev
+bind common T win-page-down
 bind common U win-update-cache
 bind common [ vol +1% +0
 bind common ] vol +0 +1%
