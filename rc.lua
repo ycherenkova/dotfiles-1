@@ -254,8 +254,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "w", function () mymainmenu:show() end),
 
     -- Layout manipulation
-    --awful.key({ modkey, "Shift"   }, "t", function () awful.client.swap.byidx(  1)    end),
-    --awful.key({ modkey, "Shift"   }, "n", function () awful.client.swap.byidx( -1)    end),
+    awful.key({ modkey, "Shift"   }, "t", function () awful.client.swap.byidx(  1)    end),
+    awful.key({ modkey, "Shift"   }, "n", function () awful.client.swap.byidx( -1)    end),
     awful.key({ modkey, "Control" }, "t", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Control" }, "n", function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
@@ -304,7 +304,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
-    awful.key({ modkey, "Shift"   }, "t",      function (c) c.ontop = not c.ontop            end),
+    --awful.key({ modkey, "Shift"   }, "t",      function (c) c.ontop = not c.ontop            end),
     awful.key({ modkey,           }, "m",
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
