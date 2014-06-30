@@ -1,4 +1,4 @@
-### Formats %a - %l - %t%=
+### Formats
 set format_current=%a - %l - %t%=
 set format_playlist=%-25%a %t%= %d
 set format_playlist_va=%-25%a %t%= %d
