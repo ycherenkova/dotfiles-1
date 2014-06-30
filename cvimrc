@@ -22,3 +22,5 @@ map S goForward
 
 "map - firstTab
 "map _ lastTab
+
+"map B Vomnibar.activateTabSelection
