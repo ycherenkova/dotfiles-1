@@ -1,10 +1,10 @@
 ### Formats %a - %l - %t%=
-set format_current= %a - %l - %t%=
-set format_playlist= %-25%a %t%= %d
-set format_playlist_va=  %-25%a %t%= %d
+set format_current=%a - %l - %t%=
+set format_playlist=%-25%a %t%= %d
+set format_playlist_va=%-25%a %t%= %d
 
-set format_trackwin= %t%= %d
-set format_trackwin_va= %t (%a)%= %d
+set format_trackwin=%t%= %d
+set format_trackwin_va=%t (%a)%= %d
 
 ### Player Controls
 bind -f common P player-prev
@@ -14,8 +14,8 @@ bind -f common h seek -5
 bind -f common s seek +5
 bind -f common t win-down
 bind -f common n win-up
-bind -f common T win-page-down
-bind -f common N win-page-up
+bind -f common D win-page-down
+bind -f common U win-page-up
 
 bind -f common L search-prev
 bind -f common l search-next
