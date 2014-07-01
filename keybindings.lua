@@ -1,3 +1,9 @@
+--[[
+    Nice Theme:
+     Powerarrow Darker Awesome WM config 2.0
+     github.com/copycat-killer
+
+--]]
 local awful     = require("awful")
 local layouts = {
     awful.layout.suit.floating,
