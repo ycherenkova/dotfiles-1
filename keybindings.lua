@@ -44,6 +44,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "b",      function () awful.util.spawn("chromium") end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
+    awful.key({ "Mod1", "Control" }, "l", function() awful.util.spawn("xscreensaver-command -lock") end),
 
     awful.key({ modkey,           }, "s",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
