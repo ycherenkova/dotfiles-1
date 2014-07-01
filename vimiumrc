@@ -1,0 +1,14 @@
+" These are Vimium remappings
+map t scrollDown
+map n scrollUp
+map s scrollRight
+
+map N goForward
+
+map T previousTab
+map N nextTab
+
+map - firstTab
+map _ lastTab
+
+map B Vomnibar.activateTabSelection
