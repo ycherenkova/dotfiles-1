@@ -18,7 +18,7 @@ xterm*toolBar:            false
 ! urxvt
 !---------------------------------------------------------------------
 
-URxvt*font:xft:Ubuntu\ Mono\ derivative\ Powerline:Bold:pixelsize=16:antialias=false
+URxvt*font:xft:Ubuntu\ Mono\ derivative\ Powerline:pixelsize=16:antialias=false
 URxvt.matcher.button:   1
 URxvt.underlineURLs: true
 
