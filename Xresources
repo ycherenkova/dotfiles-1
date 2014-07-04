@@ -19,37 +19,60 @@ xterm*toolBar:            false
 !---------------------------------------------------------------------
 
 URxvt*font:xft:Ubuntu\ Mono\ derivative\ Powerline:pixelsize=16:antialias=false
-URxvt.matcher.button:   1
 URxvt.underlineURLs: true
 
 URxvt*scrollstyle:plain
-URxvt*scrollBar: true
-URxvt*scrollBar_right: true
-URxvt*transpscrollbar: true
-URxvt*scrollBar_floating: true
+URxvt*scrollBar: false
+!URxvt*scrollBar_right: true
+!URxvt*transpscrollbar: true
+!URxvt*scrollBar_floating: true
 URxvt*saveLines: 1000000
 URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
 
-urxvt*foreground: white
-urxvt*background: black
+! Man Pages
+URxvt.colorIT:      #87af5f
+URxvt.colorBD:      #d7d7d7
+URxvt.colorUL:      #87afd7
 
-urxvt*color0:  #2E3436
-urxvt*color1:  #a40000
-urxvt*color2:  #4E9A06
-urxvt*color3:  #C4A000
-urxvt*color4:  #3465A4
-urxvt*color5:  #75507B
-urxvt*color6:  #ce5c00
-urxvt*color7:  #babdb9
-urxvt*color8:  #555753
-urxvt*color9:  #EF2929
-urxvt*color10: #8AE234
-urxvt*color11: #FCE94F
-urxvt*color12: #729FCF
-urxvt*color13: #AD7FA8
-urxvt*color14: #fcaf3e
-urxvt*color15: #EEEEEC
-urxvt*transparent: true
-urxvt*shading: 15
+cursor.theme:    Vanilla-DMZ-AA
+
+!urxvt color scheme:
+
+URxvt*background: #2B2B2B
+URxvt*foreground: #DEDEDE
+
+URxvt*colorUL: #86a2b0
+
+! black
+URxvt*color0  : #2E3436
+URxvt*color8  : #555753
+! red
+URxvt*color1  : #CC0000
+URxvt*color9  : #EF2929
+! green
+URxvt*color2  : #4E9A06
+URxvt*color10 : #8AE234
+! yellow
+URxvt*color3  : #C4A000
+URxvt*color11 : #FCE94F
+! blue
+URxvt*color4  : #3465A4
+URxvt*color12 : #729FCF
+! magenta
+URxvt*color5  : #75507B
+URxvt*color13 : #AD7FA8
+! cyan
+URxvt*color6  : #06989A
+URxvt*color14 : #34E2E2
+! white
+URxvt*color7  : #D3D7CF
+URxvt*color15 : #EEEEEC
+
+URxvt*transparent: true
+URxvt*shading: 15
+
+URxvt.perl-ext-common:  default,matcher,tabbedex
+URxvt.urlLauncher:      /usr/bin/chromium
+URxvt.matcher.button:   1
