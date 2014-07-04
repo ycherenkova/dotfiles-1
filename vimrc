@@ -54,7 +54,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'duff/vim-scratch'
 Plugin 'epeli/slimux'
-Plugin 'fholgado/minibufexpl.vim'
+"Plugin 'fholgado/minibufexpl.vim'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'mhinz/vim-signify'
@@ -185,7 +185,7 @@ let g:gundo_map_move_newer = "n"
 nnoremap <silent> <Leader>c :SlimuxREPLSendLine<CR>
 vnoremap <silent> <Leader>c :SlimuxREPLSendSelection<CR>
 
-nnoremap <silent> <Leader>b :MBEFocus<CR>
+"nnoremap <silent> <Leader>b :MBEFocus<CR>
 
 " Ctrl-c Clears the current search query to stop the highlighting
 nmap <silent> <C-c> :let @/=""<CR>
