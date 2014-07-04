@@ -29,7 +29,6 @@ export ANDROID_NDK="${HOME}/AndroidNDK"
 export PATH="$PATH:$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools:$ANDROID_NDK"
 
 # Settings this breaks CMUS colors
-#export TERM=xterm-256color
 export EDITOR=vim
 export ECLIPSE_HOME="${HOME}/AndroidSDK/eclipse"
 export NDKROOT=$ANDROID_NDK
@@ -40,3 +39,4 @@ export PATH=$PATH:${GOPATH}/bin
 
 alias cdgo="cd ~/go"
 alias gcp="git commit -am 'Alias Commit'"
+alias tmux="tmux -2"
