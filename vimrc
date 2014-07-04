@@ -40,7 +40,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 "Plugin 'bling/vim-airline'
 "Plugin 'ervandew/supertab'
 "Plugin 'kien/ctrlp.vim'
