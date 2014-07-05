@@ -4,6 +4,7 @@
      github.com/copycat-killer
 
 --]]
+local menubar = require("menubar")
 local awful = require("awful")
 local layouts = {
     awful.layout.suit.floating,
@@ -50,7 +51,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "b",      function () awful.util.spawn("chromium") end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
-    awful.key({ "Mod1", "Control" }, "l", function() awful.util.spawn("gnome-screensaver-command -a") end),
+    awful.key({ "Mod1", "Control" }, "l", function() awful.util.spawn("xscreensaver-command -lock") end),
 
     awful.key({ modkey,           }, "s",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
@@ -81,7 +82,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
-    awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
+    awful.key({ modkey, "Control" }, "m", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
     --awful.key({ modkey, "Shift"   }, "t",      function (c) c.ontop = not c.ontop            end),
     awful.key({ modkey,           }, "m",
