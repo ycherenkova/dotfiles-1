@@ -185,7 +185,7 @@ let g:gundo_map_move_newer = "n"
 nnoremap <silent> <Leader>c :SlimuxREPLSendLine<CR>
 vnoremap <silent> <Leader>c :SlimuxREPLSendSelection<CR>
 
-"nnoremap <silent> <Leader>b :MBEFocus<CR>
+:nmap <Space> i_<Esc>r
 
 " Ctrl-c Clears the current search query to stop the highlighting
 nmap <silent> <C-c> :let @/=""<CR>
@@ -243,7 +243,7 @@ vnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
 " Select text that was just pasted.
-noremap gV `[v`]`
+noremap gV `[v`]
 
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
