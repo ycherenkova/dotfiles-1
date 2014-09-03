@@ -22,17 +22,8 @@ else
     au InsertEnter * set timeoutlen=0
     au InsertLeave * set timeoutlen=1000
   augroup END
-  "Some highlight colors for basic 8 color terminals.
-  "Highlights the status line so we know what split were on
-  "hi StatusLine ctermfg=15 ctermbg=1 cterm=bold
-  "Changes the colors for completion menus
-  "hi Pmenu ctermbg=grey ctermfg=black
   hi PmenuSel ctermbg=red
   hi clear SignColumn
-  "Set color of the line numbers to dark grey.
-  "hi LineNr ctermfg=darkgrey
-  "Highlight matching parenthesis
-  "highlight MatchParen ctermbg=4
   hi Search cterm=NONE ctermfg=white ctermbg=darkblue
 endif
 
@@ -43,7 +34,6 @@ call vundle#begin()
 Plugin 'Valloric/YouCompleteMe'
 "Plugin 'bling/vim-airline'
 "Plugin 'ervandew/supertab'
-"Plugin 'kien/ctrlp.vim'
 "Plugin 'scrooloose/syntastic'
 "Plugin 'vim-scripts/JavaImp.vim--Lee'
 "Plugin 'vim-scripts/snipMate'
@@ -54,14 +44,12 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'duff/vim-scratch'
 Plugin 'epeli/slimux'
-"Plugin 'fholgado/minibufexpl.vim'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'mhinz/vim-signify'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'sjl/gundo.vim'
-Plugin 'sukima/xmledit'
 Plugin 'terryma/vim-expand-region'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
@@ -73,35 +61,9 @@ Plugin 'honza/vim-snippets'
 
 call vundle#end()
 
-let g:UltiSnipsExpandTrigger="<c-c>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-function! g:UltiSnips_Complete()
-    call UltiSnips#ExpandSnippet()
-    if g:ulti_expand_res == 0
-        if pumvisible()
-            return "\<C-n>"
-        else
-            call UltiSnips#JumpForwards()
-            if g:ulti_jump_forwards_res == 0
-               return "\<TAB>"
-            endif
-        endif
-    endif
-    return ""
-endfunction
-
-au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-" this mapping Enter key to <C-y> to chose the current highlight item 
-" and close the selection list, same as other IDEs.
-" CONFLICT with some plugins like tpope/Endwise
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
 set rtp+=~/powerline/bindings/vim
 "set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 
-"ctags --recurse --langmap=Java:.java --languages=Java --verbose -f ~/.vim/tags $ANDROID_SDK/sources
 set tags+=~/.vim/tags
 autocmd Filetype java setlocal omnifunc=javacomplete#Complete
 autocmd Filetype java setlocal completefunc=javacomplete#CompleteParamsInfo
@@ -111,23 +73,9 @@ highlight DiffAdd     cterm=bold ctermbg=none ctermfg=119
 highlight DiffDelete  cterm=bold ctermbg=none ctermfg=167
 highlight DiffChange  cterm=bold ctermbg=none ctermfg=227
 
-let g:xmledit_enable_html = 1
-
-let g:mta_use_matchparen_group = 0
-let g:mta_filetypes = {
-    \ 'html' : 1,
-    \ 'xhtml' : 1,
-    \ 'xml' : 1,
-    \ 'jinja' : 1,
-    \}
-
 set completeopt-=preview
 
-" Remove the <:> matchpairs on html files as it will mess with xmledit plugin.
-au FileType html let b:delimitMate_matchpairs = "(:),[:],{:}"
-
 let delimitMate_expand_cr = 1
-
 let delimitMate_excluded_regions_enabled = 0
 
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
@@ -184,7 +132,8 @@ noremap <silent> <buffer> <Leader>d :JavaDocSearch -x declarations<cr>
 " Disable entering EX Mode.
 nnoremap Q <nop>
 
-" Yank and paste with incremented number
+" Yank and paste with incremented number, this is nice when entering debugging
+" statements. Ex: print("1"), print("2")...
 nnoremap <leader>p p<C-A>==yy
 
 " Yank to clipboard
@@ -195,14 +144,12 @@ vnoremap // y/<c-r>"<cr>
 nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 set pastetoggle=<F2>
-
 nmap <silent> <F3> :SignifyToggle<CR>
 
 " Comment/uncomment lines of code. The 'gv' make the text stay selected
 vnoremap <silent> <F4> :call NERDComment('x', 'Toggle')<CR>gv
 nnoremap <silent> <F4> :call NERDComment('n', 'Toggle')<CR>
 
-" Used to switch between Header file and source files
 nnoremap <silent> <F5> :GundoToggle<CR>
 nnoremap <silent> <F6> :TagbarToggle<CR>
 
@@ -212,6 +159,7 @@ let g:gundo_map_move_newer = "n"
 nnoremap <silent> <Leader>c :SlimuxREPLSendLine<CR>
 vnoremap <silent> <Leader>c :SlimuxREPLSendSelection<CR>
 
+" Enter a key without entering insert mode by pressing 'Space' Then the key.
 nmap <Space> i_<Esc>r
 
 " Ctrl-c Clears the current search query to stop the highlighting
@@ -321,12 +269,8 @@ function! ResetCapsLock()
   call system("xmodmap -e 'keycode 0x42 = Caps_Lock' && xmodmap -e 'add lock = Caps_lock'")
 endfunction
 
-" Now caps lock is remapped in bashrc.
-"if !has('win32')
-  "au VimEnter * call SetCapsLockToEscape()
-  "au VimLeave * call ResetCapsLock()
-"endif
-
+" If you have vim config specific to a computer you can have a ~/.vimrc_local
+" file
 if filereadable($HOME . "/.vimrc_local")
   source $HOME/.vimrc_local
 endif
@@ -358,6 +302,33 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
+" Stuff for UltiSnips - Still in progress
+let g:UltiSnipsExpandTrigger="<c-c>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+function! g:UltiSnips_Complete()
+    call UltiSnips#ExpandSnippet()
+    if g:ulti_expand_res == 0
+        if pumvisible()
+            return "\<C-n>"
+        else
+            call UltiSnips#JumpForwards()
+            if g:ulti_jump_forwards_res == 0
+               return "\<TAB>"
+            endif
+        endif
+    endif
+    return ""
+endfunction
+
+au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+" this mapping Enter key to <C-y> to chose the current highlight item
+" and close the selection list, same as other IDEs.
+" CONFLICT with some plugins like tpope/Endwise
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 
 syntax on
 filetype plugin indent on
