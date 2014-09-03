@@ -19,3 +19,5 @@ bind -f common U win-page-up
 
 bind -f common L search-prev
 bind -f common l search-next
+
+set shuffle=true
