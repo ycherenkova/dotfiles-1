@@ -1,5 +1,6 @@
 -- Standard awesome library
---local gears = require("gears")
+local vicious = require("vicious")
+local gears = require("gears")
 local awful = require("awful")
 awful.rules = require("awful.rules")
 require("awful.autofocus")
@@ -41,7 +42,7 @@ end
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "urxvt"
+terminal = "x-terminal-emulator"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -111,7 +112,7 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 
 -- {{{ Wibox
 -- Create a textclock widget
-mytextclock = awful.widget.textclock("%a %d %b %I:%M %p ", 60)
+mytextclock = awful.widget.textclock(" @ %a %d %b %I:%M %p ", 60)
 -- Keyboard map indicator and changer
 kbdcfg = {}
 kbdcfg.cmd = "setxkbmap"
@@ -131,6 +132,21 @@ kbdcfg.widget:buttons(
  awful.util.table.join(awful.button({ }, 1, function () kbdcfg.switch() end))
 )
 
+-- {{{ Cmus info
+musicicon = wibox.widget.imagebox()
+musicicon:set_image(beautiful.widget_music)
+-- Initialize widget
+cmus_widget = wibox.widget.textbox()
+-- Register widget
+vicious.register(cmus_widget, vicious.widgets.cmus,
+    function (widget, args)
+        if args["{status}"] == "Stopped" then
+            return " - "
+        else
+            return " @ "..args["{status}"]..': '.. args["{artist}"]..' - '.. args["{title}"]
+        end
+    end, 7)
+--}}}
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -211,7 +227,8 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
-    right_layout:add(kbdcfg.widget)
+    right_layout:add(cmus_widget)
+    --right_layout:add(kbdcfg.widget)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
