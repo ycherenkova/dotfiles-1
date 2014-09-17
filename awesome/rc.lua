@@ -244,6 +244,10 @@ root.buttons(awful.util.table.join(
 ))
 -- }}}
 
+-- {{{ Key bindings
+dofile(awful.util.getdir("config") .. "/" .. "keybindings.lua")
+-- }}}
+
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
@@ -338,9 +342,4 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
-
--- {{{ Key bindings
-dofile(awful.util.getdir("config") .. "/" .. "keybindings.lua")
--- }}}
-
 -- }}}
