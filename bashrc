@@ -37,6 +37,9 @@ export PATH=$PATH:/usr/local/go/bin
 export GOPATH=${HOME}/go
 export PATH=$PATH:${GOPATH}/bin
 
+export CLASSPATH=$CLASSPATH:/usr/local/lib/kawa.jar
+
 alias cdgo="cd ~/go"
 alias gcp="git commit -am 'Alias Commit'"
 alias tmux="tmux -2"
+alias cdschool="cd ~/Dropbox/School/fall2014/"

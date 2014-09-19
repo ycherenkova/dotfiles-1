@@ -42,7 +42,7 @@ end
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "x-terminal-emulator"
+terminal = "gnome-terminal"
 browser = "google-chrome"
 lock_command = "gnome-screensaver-command -l"
 editor = os.getenv("EDITOR") or "nano"
@@ -342,4 +342,6 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+
+awful.util.spawn_with_shell("dropboxd")
 -- }}}
