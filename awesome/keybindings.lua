@@ -36,8 +36,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "n", function () awful.tag.incncol(-1)         end),
     awful.key({ modkey, "Shift"   }, "h", function () awful.tag.incmwfact(-0.05)    end),
     awful.key({ modkey, "Shift"   }, "s", function () awful.tag.incmwfact( 0.05)    end),
-    awful.key({ modkey, "Shift"   }, "t", function () awful.client.swap.byidx(  1)  end),
-    awful.key({ modkey, "Shift"   }, "n", function () awful.client.swap.byidx( -1)  end),
+    awful.key({ modkey, "Shift"   }, "t", function () awful.client.swap.byidx(-1)  end),
+    awful.key({ modkey, "Shift"   }, "n", function () awful.client.swap.byidx(1)  end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
 
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
