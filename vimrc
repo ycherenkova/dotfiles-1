@@ -257,7 +257,7 @@ au VimEnter,ColorScheme * highlight ExtraWhitespace guibg=red ctermbg=red
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhitespace /\s\+$/
 
-au FileType tex setlocal spell
+au FileType tex,text setlocal spell
 highlight SpellBad ctermfg=Red term=Reverse guisp=Red gui=undercurl ctermbg=White
 
 " Map caps lock to escape

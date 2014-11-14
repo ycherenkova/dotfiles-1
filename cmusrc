@@ -14,8 +14,8 @@ bind -f common h seek -5
 bind -f common s seek +5
 bind -f common t win-down
 bind -f common n win-up
-bind -f common D win-page-down
-bind -f common U win-page-up
+bind -f common ^D win-page-down
+bind -f common ^U win-page-up
 
 bind -f common L search-prev
 bind -f common l search-next
