@@ -28,3 +28,5 @@ MAILTO="nichittle@gmail.com"
 00 16 * * * ${HOME}/dotfiles/scripts/update-vim-plugins.sh 2>&1 | grep -v 'Vim: Warning: Output is not to a terminal' | grep -v 'Vim: Warning: Input is not from a terminal'
 
 1,31 * * * * ${HOME}/dotfiles/scripts/checkIp.sh
+
+0 18 1-30/4 * * ${HOME}/dotfiles/scripts/updateSystem.sh

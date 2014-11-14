@@ -1,7 +1,7 @@
 #!/bin/bash
 
 dir=~/dotfiles
-files="conkyrc gitconfig latexmkrc tmux.conf vimrc"
+files="conkyrc gitconfig latexmkrc tmux.conf vimrc Xmodmap xbindkeysrc"
 
 cd $dir
 
