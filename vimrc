@@ -62,8 +62,8 @@ Plugin 'honza/vim-snippets'
 
 call vundle#end()
 
-set rtp+=~/powerline/bindings/vim
-"set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+"set rtp+=~/powerline/bindings/vim
+set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 
 set tags+=~/.vim/tags
 autocmd Filetype java setlocal omnifunc=javacomplete#Complete

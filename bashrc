@@ -13,8 +13,11 @@
 
 # This tests if the $SSH_CONNECTION variable is empty, if so we probably don't
 # want to use powerline over ssh, as it might look funny
+if [ -d "$HOME/.local/bin" ]; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
 if [ -z "$SSH_CONNECTION" ]; then
-  . ${HOME}/powerline/bindings/bash/powerline.sh
+  . ${HOME}/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
 fi
 
 if [ -n "$DISPLAY" ]; then
