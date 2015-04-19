@@ -32,11 +32,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'Valloric/YouCompleteMe'
-"Plugin 'bling/vim-airline'
-"Plugin 'ervandew/supertab'
 "Plugin 'scrooloose/syntastic'
 "Plugin 'vim-scripts/JavaImp.vim--Lee'
-"Plugin 'vim-scripts/snipMate'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'PeterRincker/vim-argumentative'
@@ -303,33 +300,6 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
-
-" Stuff for UltiSnips - Still in progress
-let g:UltiSnipsExpandTrigger="<c-c>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-function! g:UltiSnips_Complete()
-    call UltiSnips#ExpandSnippet()
-    if g:ulti_expand_res == 0
-        if pumvisible()
-            return "\<C-n>"
-        else
-            call UltiSnips#JumpForwards()
-            if g:ulti_jump_forwards_res == 0
-               return "\<TAB>"
-            endif
-        endif
-    endif
-    return ""
-endfunction
-
-au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-" this mapping Enter key to <C-y> to chose the current highlight item
-" and close the selection list, same as other IDEs.
-" CONFLICT with some plugins like tpope/Endwise
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
 
 syntax on
 filetype plugin indent on
