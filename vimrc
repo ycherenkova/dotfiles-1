@@ -31,7 +31,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 "Plugin 'scrooloose/syntastic'
 "Plugin 'vim-scripts/JavaImp.vim--Lee'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
@@ -60,6 +60,7 @@ Plugin 'honza/vim-snippets'
 call vundle#end()
 
 "set rtp+=~/powerline/bindings/vim
+"http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin
 set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 
 set tags+=~/.vim/tags
@@ -301,5 +302,5 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
 \ }
 
-syntax on
 filetype plugin indent on
+syntax on
