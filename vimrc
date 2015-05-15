@@ -33,7 +33,6 @@ call vundle#begin()
 
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'scrooloose/syntastic'
-"Plugin 'vim-scripts/JavaImp.vim--Lee'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'PeterRincker/vim-argumentative'
