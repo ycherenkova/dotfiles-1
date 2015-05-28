@@ -31,12 +31,8 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'Valloric/YouCompleteMe'
-"Plugin 'bling/vim-airline'
-"Plugin 'ervandew/supertab'
+"Plugin 'Valloric/YouCompleteMe'
 "Plugin 'scrooloose/syntastic'
-"Plugin 'vim-scripts/JavaImp.vim--Lee'
-"Plugin 'vim-scripts/snipMate'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'PeterRincker/vim-argumentative'
@@ -59,10 +55,21 @@ Plugin 'vim-scripts/SearchComplete'
 Plugin 'vim-scripts/javacomplete'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'kien/ctrlp.vim'
 
 call vundle#end()
 
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \ 'ng.html' : 1,
+    \}
+
+
 "set rtp+=~/powerline/bindings/vim
+"http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin
 set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 
 set tags+=~/.vim/tags
@@ -119,7 +126,7 @@ set cindent
 set novisualbell
 set noerrorbells
 
-set clipboard=unnamed,unnamedplus
+"set clipboard=unnamed,unnamedplus
 
 set wildmenu
 set wildmode=longest:full,full
@@ -129,6 +136,17 @@ let maplocalleader=","
 
 noremap <silent> <buffer> <Leader>i :JavaImport<cr>
 noremap <silent> <buffer> <Leader>d :JavaDocSearch -x declarations<cr>
+
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn\|\.git5_specs$\|review$',
+  \ 'file': '\.exe$\|\.so$\|\.dll$',
+  \ 'link': 'blaze-bin\|blaze-genfiles\|blaze-google3\|blaze-out\|blaze-testlogs\|READONLY$',
+  \ }
 
 " Disable entering EX Mode.
 nnoremap Q <nop>
@@ -144,6 +162,7 @@ vnoremap // y/<c-r>"<cr>
 " Expands it to the current file path.
 nmap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
+nmap <F1> <nop>
 set pastetoggle=<F2>
 nmap <silent> <F3> :SignifyToggle<CR>
 
@@ -228,7 +247,7 @@ vmap <C-v> <Plug>(expand_region_shrink)
 vmap <C-y> :w! ~/.vimbuffer<CR>
 nmap <C-y> :.w! ~/.vimbuffer<CR>
 " paste from buffer
-map <C-p> :r ~/.vimbuffer<CR>
+"map <C-p> :r ~/.vimbuffer<CR>
 
 " Delete Trailing White Space
 :command! DTWS :%s/\s\+$//g
@@ -304,32 +323,29 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
 \ }
 
-" Stuff for UltiSnips - Still in progress
-let g:UltiSnipsExpandTrigger="<c-c>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-function! g:UltiSnips_Complete()
-    call UltiSnips#ExpandSnippet()
-    if g:ulti_expand_res == 0
-        if pumvisible()
-            return "\<C-n>"
-        else
-            call UltiSnips#JumpForwards()
-            if g:ulti_jump_forwards_res == 0
-               return "\<TAB>"
-            endif
-        endif
-    endif
-    return ""
+" Automatically enter paste mode when pasting.
+function! WrapForTmux(s)
+  if !exists('$TMUX')
+    return a:s
+  endif
+
+  let tmux_start = "\<Esc>Ptmux;"
+  let tmux_end = "\<Esc>\\"
+
+  return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
 endfunction
 
-au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-" this mapping Enter key to <C-y> to chose the current highlight item
-" and close the selection list, same as other IDEs.
-" CONFLICT with some plugins like tpope/Endwise
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+let &t_EI .= WrapForTmux("\<Esc>[?2004l")
 
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
 
-syntax on
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
 filetype plugin indent on
+syntax on
