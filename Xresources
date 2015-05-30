@@ -18,7 +18,15 @@ xterm*toolBar:            false
 ! urxvt
 !---------------------------------------------------------------------
 
-URxvt*font:xft:Ubuntu\ Mono\ derivative\ Powerline:pixelsize=16:antialias=false
+URxvt.perl-ext-common: default,clipboard
+URxvt.iso14755: False
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.clipboard.copycmd: xsel -ib
+URxvt.clipboard.pastecmd: xsel -ob
+
+!URxvt*font:xft:Ubuntu\ Mono\ derivative\ Powerline:pixelsize=16:antialias=false
+URxvt*font:xft:Ubuntu\ Mono:pixelsize=16:antialias=false
 URxvt.underlineURLs: true
 
 URxvt*scrollstyle:plain
@@ -76,3 +84,11 @@ URxvt*shading: 15
 URxvt.perl-ext-common:  default,matcher,tabbedex
 URxvt.urlLauncher:      /usr/bin/chromium
 URxvt.matcher.button:   1
+
+Xft.autohint: 0
+Xft.dpi:96
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault

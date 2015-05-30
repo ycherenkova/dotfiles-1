@@ -42,8 +42,8 @@ end
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "gnome-terminal"
-browser = "google-chrome"
+terminal = "urxvt"
+browser = "google-chrome-stable"
 lock_command = "gnome-screensaver-command -l"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
