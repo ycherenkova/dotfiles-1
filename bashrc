@@ -17,7 +17,8 @@ if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 if [ -z "$SSH_CONNECTION" ]; then
-  . ${HOME}/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+  #. ${HOME}/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+  . /usr/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh
 fi
 
 if [ -n "$DISPLAY" ]; then
