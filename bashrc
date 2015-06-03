@@ -11,14 +11,14 @@
   #ln -s /dev/null $HOME/.xsession-errors.old
 #fi
 
-# This tests if the $SSH_CONNECTION variable is empty, if so we probably don't
-# want to use powerline over ssh, as it might look funny
 if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
-if [ -z "$SSH_CONNECTION" ]; then
+# This tests if the $SSH_CONNECTION variable is empty, if so we probably don't
+# want to use powerline over ssh, as it might look funny
+#if [ -z "$SSH_CONNECTION" ]; then
   . ${HOME}/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
-fi
+#fi
 
 if [ -n "$DISPLAY" ]; then
   xmodmap -e 'clear lock' -e 'keycode 0x42 = Escape'
