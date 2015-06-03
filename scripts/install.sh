@@ -10,8 +10,10 @@ for file in $files; do
   ln -s $dir/$file ~/.$file
 done
 
-awesomedir=~/.config/awesome
+awesomedir=~/.config/awesome/vicious/widgets
 mkdir -p $awesomedir
-ln -s $dir/rc.lua $awesomedir
+ln -s $dir/awesome/rc.lua $awesomedir
+ln -s $dir/awesome/keybindings.lua $awesomedir
+ln -s $dir/awesome/cmus.lua $awesomedir/vicious/widgets
 
 echo ". $dir/bashrc" >> ~/.bashrc
