@@ -1,14 +1,3 @@
-
-# This tests if the $SSH_CONNECTION variable is empty, if so we probably don't
-# want to use powerline over ssh, as it might look funny
-if [ -z "$SSH_CONNECTION" ]; then
-  . /usr/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh
-fi
-
-if [ -n "$DISPLAY" ]; then
-  xmodmap -e 'clear lock' -e 'keycode 0x42 = Escape'
-fi
-
 bind "TAB:menu-complete"
 bind "set show-all-if-ambiguous on"
 bind "set completion-display-width 2"
@@ -38,3 +27,18 @@ alias pacimpl="pacman -D --asdep" # Mark one or more installed packages as non e
 alias pacupd='sudo pacman -Sy && sudo abs'         # Update and refresh the local package and ABS databases against repositories
 alias pacinsd='sudo pacman -S --asdeps'            # Install given package(s) as dependencies
 alias pacmir='sudo pacman -Syy'                    # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
+
+# This tests if the $SSH_CONNECTION variable is empty, if so we probably don't
+# want to use powerline over ssh, as it might look funny
+if [ -z "$SSH_CONNECTION" ]; then
+  . /usr/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh
+fi
+
+# Start TMUX
+# If not running interactively, do not do anything
+[[ $- != *i* ]] && return
+[[ -z "$TMUX" ]] && exec tmux -2
+
+if [ -n "$DISPLAY" ]; then
+  xmodmap -e 'clear lock' -e 'keycode 0x42 = Escape'
+fi
