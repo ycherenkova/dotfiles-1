@@ -28,11 +28,15 @@ alias pacupd='sudo pacman -Sy && sudo abs'         # Update and refresh the loca
 alias pacinsd='sudo pacman -S --asdeps'            # Install given package(s) as dependencies
 alias pacmir='sudo pacman -Syy'                    # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
 
+if [ -d "$HOME/.local/bin" ]; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
 # This tests if the $SSH_CONNECTION variable is empty, if so we probably don't
 # want to use powerline over ssh, as it might look funny
-if [ -z "$SSH_CONNECTION" ]; then
+#if [ -z "$SSH_CONNECTION" ]; then
   . /usr/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh
-fi
+#fi
 
 # Start TMUX
 # If not running interactively, do not do anything
