@@ -40,8 +40,8 @@ fi
 
 # Start TMUX
 # If not running interactively, do not do anything
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux -2
+#[[ $- != *i* ]] && return
+#[[ -z "$TMUX" ]] && exec tmux -2
 
 if [ -n "$DISPLAY" ]; then
   xmodmap -e 'clear lock' -e 'keycode 0x42 = Escape'
