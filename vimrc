@@ -70,8 +70,8 @@ let g:mta_filetypes = {
 
 "set rtp+=~/powerline/bindings/vim
 "http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin
-"set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
-set rtp+=/usr/lib/python3.4/site-packages/powerline/bindings/vim
+set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+"set rtp+=/usr/lib/python3.4/site-packages/powerline/bindings/vim
 
 set tags+=~/.vim/tags
 autocmd Filetype java setlocal omnifunc=javacomplete#Complete
@@ -268,7 +268,7 @@ function! HighlightTooLongLines()
 endfunction
 
 au FileType text,cpp,tex setlocal textwidth=80
-au FileType java setlocal textwidth=100
+au FileType java,ng.html setlocal textwidth=100
 
 au BufEnter,BufWinEnter * call HighlightTooLongLines()
 
