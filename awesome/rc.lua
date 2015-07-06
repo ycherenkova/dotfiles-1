@@ -267,9 +267,20 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
-    -- Set Firefox to always map on tags number 2 of screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { tag = tags[1][2] } },
+    { rule = { class = "Google-chrome-stable" },
+      properties = { }, callback = function (c)
+        if not skipMovingChrome then
+          awful.client.movetotag(tags[1][1], c)
+          skipMovingChrome = true
+        end
+      end },
+    { rule = { class = "terminator" },
+      properties = { }, callback = function (c)
+        if not skipMovingTerm then
+          awful.client.movetotag(tags[2][1], c)
+          skipMovingTerm = true
+        end
+      end },
 }
 -- }}}
 
@@ -345,6 +356,8 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
+awful.util.spawn(browser)
+--awful.util.spawn(terminal)
 awful.util.spawn_with_shell("dropbox start")
 awful.util.spawn_with_shell("xbindkeys")
 -- }}}

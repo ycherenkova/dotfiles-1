@@ -1,21 +1,3 @@
-if [ -d "$HOME/.local/bin" ]; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
-# This tests if the $SSH_CONNECTION variable is empty, if so we probably don't
-# want to use powerline over ssh, as it might look funny
-#if [ -z "$SSH_CONNECTION" ]; then
-  . ${HOME}/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
-#fi
-# This tests if the $SSH_CONNECTION variable is empty, if so we probably don't
-# want to use powerline over ssh, as it might look funny
-#if [ -z "$SSH_CONNECTION" ]; then
-#  . /usr/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh
-#fi
-
-if [ -n "$DISPLAY" ]; then
-  xmodmap -e 'clear lock' -e 'keycode 0x42 = Escape'
-fi
-
 bind "TAB:menu-complete"
 bind "set show-all-if-ambiguous on"
 bind "set completion-display-width 2"
@@ -48,3 +30,21 @@ alias pacmir='sudo pacman -Syy'                    # Force refresh of all packag
 
 alias gitb='git branch'
 alias gits='git status'
+if [ -d "$HOME/.local/bin" ]; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+# This tests if the $SSH_CONNECTION variable is empty, if so we probably don't
+# want to use powerline over ssh, as it might look funny
+#if [ -z "$SSH_CONNECTION" ]; then
+  . /usr/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh
+#fi
+
+# Start TMUX
+# If not running interactively, do not do anything
+#[[ $- != *i* ]] && return
+#[[ -z "$TMUX" ]] && exec tmux -2
+
+if [ -n "$DISPLAY" ]; then
+  xmodmap -e 'clear lock' -e 'keycode 0x42 = Escape'
+fi
