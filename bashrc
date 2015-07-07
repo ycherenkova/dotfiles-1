@@ -37,7 +37,7 @@ fi
 # This tests if the $SSH_CONNECTION variable is empty, if so we probably don't
 # want to use powerline over ssh, as it might look funny
 #if [ -z "$SSH_CONNECTION" ]; then
-  . /usr/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh
+  source /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
 #fi
 
 # Start TMUX
