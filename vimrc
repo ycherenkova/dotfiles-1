@@ -123,7 +123,8 @@ set equalalways
 set scrolloff=4
 
 set autoindent
-set cindent
+set smartindent
+set nocindent
 
 set novisualbell
 set noerrorbells
