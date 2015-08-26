@@ -42,7 +42,7 @@ end
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "terminator"
+terminal = "gnome-terminal"
 browser = "google-chrome-stable"
 lock_command = "gnome-screensaver-command -l"
 editor = os.getenv("EDITOR") or "nano"
@@ -55,7 +55,7 @@ editor_cmd = terminal .. " -e " .. editor
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 
-awful.util.spawn("xautolock -time 5 -locker 'gnome-screensaver-command --lock'")
+awful.util.spawn("xautolock -time 2 -locker 'gnome-screensaver-command --lock'")
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =

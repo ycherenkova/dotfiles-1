@@ -56,6 +56,7 @@ Plugin 'vim-scripts/javacomplete'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'kien/ctrlp.vim'
+Plugin 'ervandew/supertab'
 
 call vundle#end()
 
@@ -66,6 +67,16 @@ let g:mta_filetypes = {
     \ 'jinja' : 1,
     \ 'ng.html' : 1,
     \}
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 
 "set rtp+=~/powerline/bindings/vim
@@ -88,7 +99,6 @@ set completeopt-=preview
 let delimitMate_expand_cr = 1
 let delimitMate_excluded_regions_enabled = 0
 
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
 set nobackup
 set noswapfile
