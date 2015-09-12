@@ -56,6 +56,7 @@ Plugin 'vim-scripts/javacomplete'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'kien/ctrlp.vim'
+Plugin 'ervandew/supertab'
 
 call vundle#end()
 
@@ -67,11 +68,22 @@ let g:mta_filetypes = {
     \ 'ng.html' : 1,
     \}
 
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
 
 "set rtp+=~/powerline/bindings/vim
 "http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin
 "set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
-set rtp+=/usr/lib/python3.4/site-packages/powerline/bindings/vim
+"set rtp+=/usr/lib/python3.4/site-packages/powerline/bindings/vim
+set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
 
 set tags+=~/.vim/tags
 autocmd Filetype java setlocal omnifunc=javacomplete#Complete
@@ -87,7 +99,6 @@ set completeopt-=preview
 let delimitMate_expand_cr = 1
 let delimitMate_excluded_regions_enabled = 0
 
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
 set nobackup
 set noswapfile
@@ -122,7 +133,8 @@ set equalalways
 set scrolloff=4
 
 set autoindent
-set cindent
+set smartindent
+set nocindent
 
 set novisualbell
 set noerrorbells
@@ -268,7 +280,7 @@ function! HighlightTooLongLines()
 endfunction
 
 au FileType text,cpp,tex setlocal textwidth=80
-au FileType java setlocal textwidth=100
+au FileType java,ng.html setlocal textwidth=100
 
 au BufEnter,BufWinEnter * call HighlightTooLongLines()
 
