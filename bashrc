@@ -14,6 +14,6 @@ fi
 
 . ~/dotfiles/aliases
 
-if [ -f /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh ]; then
-  . /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
+if [ -f /usr/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh ]; then
+  . /usr/lib/python3.4/site-packages/powerline/bindings/bash/powerline.sh
 fi

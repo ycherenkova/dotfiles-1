@@ -1,6 +1,7 @@
 alias gcp="git commit -am 'Alias Commit'"
 alias gits="git status"
 alias gitb="git branch"
+alias gitd="git diff"
 
 alias tmux="tmux -2"
 
