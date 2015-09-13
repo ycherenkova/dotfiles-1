@@ -87,8 +87,8 @@ if [ -n "$DISPLAY" ]; then
   xmodmap -e 'clear lock' -e 'keycode 0x42 = Escape'
 fi
 
-if [[ -r /usr/lib/python3.4/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
-  . /usr/lib/python3.4/site-packages/powerline/bindings/zsh/powerline.zsh
+if [[ -r /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+  . /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh
 fi
 
 . ~/dotfiles/aliases
