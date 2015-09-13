@@ -79,8 +79,8 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 
 "http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin
-set rtp+=/usr/lib/python3.4/site-packages/powerline/bindings/vim
-"set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
+"set rtp+=/usr/lib/python3.4/site-packages/powerline/bindings/vim
+set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
 set t_Co=256
 
 set tags+=~/.vim/tags
