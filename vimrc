@@ -1,6 +1,5 @@
 set nocompatible
 
-set t_Co=16
 " Required for Powerline to work in windows
 set encoding=utf-8
 if has('gui_running')
@@ -83,6 +82,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 "set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 set rtp+=/usr/lib/python3.4/site-packages/powerline/bindings/vim
 "set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
+set t_Co=256
 
 set tags+=~/.vim/tags
 autocmd Filetype java setlocal omnifunc=javacomplete#Complete
