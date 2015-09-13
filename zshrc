@@ -91,6 +91,10 @@ if [[ -r /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline
   . /usr/local/lib/python2.7/dist-packages/powerline/bindings/zsh/powerline.zsh
 fi
 
+if [[ -r /usr/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+  . /usr/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+fi
+
 . ~/dotfiles/aliases
 
 export TERM=xterm-256color
