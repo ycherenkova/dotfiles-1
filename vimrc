@@ -1,6 +1,6 @@
 set nocompatible
 
-set t_Co=256
+set t_Co=16
 " Required for Powerline to work in windows
 set encoding=utf-8
 if has('gui_running')
@@ -79,7 +79,6 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 
-"set rtp+=~/powerline/bindings/vim
 "http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin
 "set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 set rtp+=/usr/lib/python3.4/site-packages/powerline/bindings/vim

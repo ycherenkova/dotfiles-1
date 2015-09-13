@@ -116,4 +116,4 @@ alias ll="ls --color=auto -al"
 if [ -n "$DISPLAY" ]; then
   xmodmap -e 'clear lock' -e 'keycode 0x42 = Escape'
 fi
-  . /usr/lib/python3.4/site-packages/powerline/bindings/zsh/powerline.zsh
+. /usr/lib/python3.4/site-packages/powerline/bindings/zsh/powerline.zsh
