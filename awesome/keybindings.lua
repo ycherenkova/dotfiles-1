@@ -68,6 +68,11 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
+              end),
+    -- bind PrintScrn to capture a screen
+    awful.key({}, "Print",
+              function()
+                  awful.util.spawn("capscr",false)
               end)
 )
 
